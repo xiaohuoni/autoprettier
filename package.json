@@ -1,6 +1,6 @@
 {
   "name": "autoppp",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "bin": {
     "autoppp": "./lib/prettier.js"
@@ -19,11 +19,12 @@
     "ejs": "^2.6.1",
     "fs": "0.0.1-security",
     "fs-extra": "^6.0.0",
+    "glob": "^7.1.3",
     "path": "^0.12.7",
+    "prettier": "1.16.3",
     "update-notifier": "^2.5.0",
     "uppercamelcase": "^3.0.0",
-    "yargs-parser": "^10.0.0",
-    "prettier": "1.16.3"
+    "yargs-parser": "^10.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -44,5 +45,9 @@
       "transform-runtime"
     ]
   },
-  "files": ["lib","bin",".prettierrc"]
+  "files": [
+    "lib",
+    "bin",
+    ".prettierrc"
+  ]
 }
