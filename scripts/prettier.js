@@ -6,10 +6,7 @@ const prettierConfigPath = require.resolve('../.prettierrc');
 const chalk = require('chalk');
 
 let didError = false;
-
-const files = getPrettierFiles();
-
-files.forEach(file => {
+const prettierFile = file => {
   const options = prettier.resolveConfig.sync(file, {
     config: prettierConfigPath,
   });
@@ -30,8 +27,18 @@ files.forEach(file => {
     }
   } catch (e) {
     didError = true;
+    console.log(chalk.red(`prettier ${file} is error`));
   }
-});
+};
+const script = process.argv[2];
+if (script) {
+  prettierFile(script);
+} else {
+  const files = getPrettierFiles();
+  files.forEach(file => {
+    prettierFile(file);
+  });
+}
 
 if (didError) {
   process.exit(1);
